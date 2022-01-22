@@ -40,29 +40,30 @@ h3 {
     <h3>1/22/2023</h3>
     <h2 id="h2"></h2>
 </body>
-<script src="index.js">
-   function timeShow() { 
+<script>
+function timeShow() { 
 
-let date = new Date()  // 0-23
-let hour = date.getHours() // 0-24
-let minutes = date.getMinutes() //0-59
-let second = date.getSeconds() //0-
-let changePm = "AM"
-if (hour > 12) {
-    hour = hour - 12
-    changePm = "PM"
-}
-if (hour === 0) {
-    hour = 12
-}
-hour = (hour < 10) ? "0" + hour : hour;
-minutes = (minutes < 10) ? "0" + minutes : minutes;
-second = (second < 10) ? "0" + second : second;
+    let date = new Date()  // 0-23
+    let hour = date.getHours() // 0-24
+    let minutes = date.getMinutes() //0-59
+    let second = date.getSeconds() //0-
+    let changePm = "AM"
+    if (hour > 12) {
+        hour = hour - 12
+        changePm = "PM"
+    }
+    if (hour === 0) {
+        hour = 12
+    }
+    hour = (hour < 10) ? "0" + hour : hour;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    second = (second < 10) ? "0" + second : second;
 
-let finalTime = hour + ": " + minutes + ": " + second + ": " + changePm;
-document.getElementById('h2').innerText = finalTime;
-setTimeout(timeShow, 1000)
+    let finalTime = hour + ": " + minutes + ": " + second + ": " + changePm;
+    document.getElementById('h2').innerText = finalTime;
+    console.log(finalTime);
 }
-timeShow()
+// timeShow()
+setInterval(timeShow, 1000)
 </script>
 </html>
