@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body {
+            background-color: #0c051d;
+            background-image: url('https://data.whicdn.com/images/339908168/original.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 50%;
+            /* border: 2px solid rebeccapurple; */
+
+        }
+        #h2 {
+    font-size: 77px;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    margin: 22px;
+    margin-top: 208px;
+    color: #000000;
+    /* background-color: #0c0e25; */
+    /* border: 2px solid rgb(209 214 238); */
+    border-radius: 20px;
+}
+
+h3 {
+    color: rgb(3, 1, 2);
+    font-size: 65px;
+    font-weight: 400;
+}
+    </style>
+</head>
+    <!-- ------- -->
+<body>
+    <h3>1/22/2023</h3>
+    <h2 id="h2"></h2>
+</body>
+<script src="index.js">
+   function timeShow() { 
+
+let date = new Date()  // 0-23
+let hour = date.getHours() // 0-24
+let minutes = date.getMinutes() //0-59
+let second = date.getSeconds() //0-
+let changePm = "AM"
+if (hour > 12) {
+    hour = hour - 12
+    changePm = "PM"
+}
+if (hour === 0) {
+    hour = 12
+}
+hour = (hour < 10) ? "0" + hour : hour;
+minutes = (minutes < 10) ? "0" + minutes : minutes;
+second = (second < 10) ? "0" + second : second;
+
+let finalTime = hour + ": " + minutes + ": " + second + ": " + changePm;
+document.getElementById('h2').innerText = finalTime;
+setTimeout(timeShow, 1000)
+}
+timeShow()
+</script>
+</html>
